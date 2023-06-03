@@ -17,6 +17,7 @@ let minutes = Math.floor(timeLimit / 60);
 let seconds = timeLimit % 60;
 let score = { wolf: 0, fox: 0 };
 let play = false;
+let winner = false;
 let startCount = 3;
 
 const timeLimitText = document.getElementById("time-limit");
@@ -26,7 +27,6 @@ const startButtonContainerText = document.getElementById(
 );
 const startCounterText = document.getElementById("start-counter");
 const resultText = document.getElementById("result");
-
 
 const startCounter = () => {
   startButtonContainerText.classList.add("hide");
@@ -49,6 +49,7 @@ const startCounter = () => {
 const startGame = () => {
   let foxScale = 2;
   let wolfScale = 2;
+
   position = originalPosition;
   play = true;
 
@@ -59,8 +60,6 @@ const startGame = () => {
 
     if (pressedKey === "a" && play) {
       position -= 10;
-      console.log(position);
-
       foxScale += 0.3;
       wolfScale -= 0.3;
       fox.style.scale = foxScale;
@@ -76,52 +75,72 @@ const startGame = () => {
     }
 
     if (position <= 10) {
-      resultText.innerText = 'Fox win';
-      resultText.classList.remove("hide")
+      resultText.innerText = "Fox win";
+      resultText.classList.remove("hide");
+      winner = true;
       setNewGame();
       score.fox++;
     }
 
     if (position >= 90) {
-      resultText.innerText = 'Wolf win';
-      resultText.classList.remove("hide")
+      resultText.innerText = "Wolf win";
+      resultText.classList.remove("hide");
+      winner = true;
       setNewGame();
       score.wolf++;
     }
-    scoreText.innerHTML = "🦊 " + score.fox + " : " + score.wolf + " 🐺";
+
+    scoreText.innerHTML =
+      "<span>🦊</span> " + score.fox + " : " + score.wolf + " <span>🐺</span>";
+
     setIconPosition(position);
   };
 };
 
 const counter = () => {
   const count = setInterval(() => {
-    seconds--;
+    if (seconds == 00) {
+      minutes--;
+      seconds = 59;
+    } else {
+      seconds--;
+    }
 
     if (seconds < 10) {
       seconds = "0" + seconds;
     }
 
     if ((minutes == 0 && seconds == 0) || !play) {
-      console.log(play);
+      if (!winner) {
+        if (position < 50) {
+          resultText.innerText = "Fox win";
+          score.fox++;
+
+        } else if (position > 50) {
+          resultText.innerText = "Wolf win";
+          score.wolf++;
+        } else {
+          resultText.innerText = "It's a draw";
+        }
+        resultText.classList.remove("hide");
+      }
+      winner = false;
+
       setTimeout(() => {
         setIconPosition(originalPosition);
         setNewGame();
       }, 1000);
+
       clearInterval(count);
     }
 
-    timeLimitText.innerHTML = minutes + ":" + seconds;
-
-    if (seconds == 0 && minutes != 0) {
-      minutes--;
-      seconds = 60;
-    }
+    timeLimitText.innerHTML = " " + minutes + ":" + seconds;
   }, 1000);
 };
 
 const setNewGame = () => {
-  position = originalPosition;
   play = false;
+  position = originalPosition;
   startButtonContainerText.classList.remove("hide");
 
   foxScale = 2;
@@ -129,7 +148,6 @@ const setNewGame = () => {
   fox.style.scale = foxScale;
   wolf.style.scale = wolfScale;
 
-  
   minutes = Math.floor(timeLimit / 60);
   seconds = timeLimit % 60;
 
@@ -142,14 +160,12 @@ const setIconPosition = (position) => {
 };
 
 const setInitInfo = () => {
-
-
   if (seconds < 10) {
     seconds = "0" + seconds;
   }
-  timeLimitText.innerHTML = minutes + ":" + seconds;
-  scoreText.innerHTML = "<span>🦊</span> " + score.fox + " : " + score.wolf + " <span>🐺</span>";
-
+  timeLimitText.innerHTML = " " + minutes + ":" + seconds;
+  scoreText.innerHTML =
+    "<span>🦊</span> " + score.fox + " : " + score.wolf + " <span>🐺</span>";
 };
 
 setInitInfo();
