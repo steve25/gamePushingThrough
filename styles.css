@@ -1,0 +1,129 @@
+body {
+  background-color: rgb(131, 255, 193);
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  width: 640px;
+  height: 480px;
+  background-color: skyblue;
+  border: 2px solid black;
+  border-radius: 0.8em;
+  position: relative;
+}
+
+.icons {
+  top: 50%;
+  scale: 2;
+}
+
+.fox {
+  left: 20%;
+}
+
+.wolf {
+  right: 20%;
+}
+
+.foxFire {
+  bottom: -7px;
+  left: 70px;
+}
+
+.wolfFire {
+  bottom: -7px;
+  right: 65px;
+}
+
+.leftBranch {
+  top: 10px;
+}
+
+.rightBranch {
+  top: 10px;
+  right: 0;
+  transform: scale(-1, 1);
+}
+
+.centerline {
+  left: 50%;
+  background-color: black;
+  width: 3px;
+  height: 480px;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.start-button-container {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 125px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.start-counter {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 125px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 0.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-button-container .start-button {
+  padding: 0.5em;
+}
+
+.time {
+  padding: 0.6em;
+  background-color: aliceblue;
+  border: 1px solid navy;
+  border-radius: 0.8em;
+  top: 10px;
+  left: 220px;
+  display: flex;
+  align-items: center;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  padding: 0.6em;
+  background-color: aliceblue;
+  border: 1px solid navy;
+  border-radius: 0.8em;
+  top: 10px;
+  right: 160px;
+}
+
+.hide {
+  display: none;
+}
+
+p {
+  margin: 0;
+}
+
+p span {
+  font-size: 0.9em;
+}
+
+button {
+  margin-top: 10px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Pretlačovanie</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <div class="game">
+        <div class="rightBranch absolute">
+          <img
+            src="./assets/branch.png"
+            alt="branch"
+            width="250px"
+          />
+        </div>
+        <div class="leftBranch absolute">
+          <img
+            src="./assets/branch.png"
+            alt="branch"
+            width="250px"
+          />
+        </div>
+        <div class="foxFire absolute">
+          <img
+            src="https://i2.wp.com/www.mustardseedbbq.com/wp-content/uploads/2016/02/Realistic-fire-animated-transparent-gif-short.gif"
+            alt="fire"
+            width="150px"
+          />
+        </div>
+        <div class="wolfFire absolute">
+          <img
+            src="https://i2.wp.com/www.mustardseedbbq.com/wp-content/uploads/2016/02/Realistic-fire-animated-transparent-gif-short.gif"
+            alt="fire"
+            width="150px"
+          />
+        </div>
+        <div class="time absolute">Time: <span id="time-limit"></span></div>
+        <div class="score absolute"><p>Score: </p><p><span id="score"></span></p></div>
+        <div id="fox" class="fox absolute icons">🦊</div>
+        <div class="centerline absolute"></div>
+        <div id="wolf" class="wolf absolute icons">🐺</div>
+        <div
+          id="start-button-container"
+          class="start-button-container absolute"
+        >
+          <p id="result" class="hide"></p>
+          <p>Let´s play a game</p>
+          <button class="start-button" onclick="startCounter()">START</button>
+        </div>
+        <div id="start-counter" class="start-counter hide absolute">
+          <p>3</p>
+        </div>
+      </div>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>
