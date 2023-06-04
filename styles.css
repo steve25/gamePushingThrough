@@ -65,7 +65,7 @@ main {
   height: 125px;
   background-color: white;
   border: 2px solid black;
-  border-radius: 0.8em;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,14 +80,19 @@ main {
   height: 125px;
   background-color: white;
   border: 2px solid black;
-  border-radius: 0.8em;
+  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: xx-large;
 }
 
 .start-button-container .start-button {
   padding: 0.5em;
+}
+
+.start-button-container .result {
+  font-size: larger;
 }
 
 .time {

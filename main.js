@@ -75,7 +75,7 @@ const startGame = () => {
     }
 
     if (position <= 10) {
-      resultText.innerText = "Fox win";
+      resultText.innerText = "🦊 win";
       resultText.classList.remove("hide");
       winner = true;
       setNewGame();
@@ -83,7 +83,7 @@ const startGame = () => {
     }
 
     if (position >= 90) {
-      resultText.innerText = "Wolf win";
+      resultText.innerText = "🐺 win";
       resultText.classList.remove("hide");
       winner = true;
       setNewGame();
@@ -113,11 +113,11 @@ const counter = () => {
     if ((minutes == 0 && seconds == 0) || !play) {
       if (!winner) {
         if (position < 50) {
-          resultText.innerText = "Fox win";
+          resultText.innerText = "🦊 win";
           score.fox++;
 
         } else if (position > 50) {
-          resultText.innerText = "Wolf win";
+          resultText.innerText = "🐺 win";
           score.wolf++;
         } else {
           resultText.innerText = "It's a draw";
