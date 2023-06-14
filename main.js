@@ -8,7 +8,7 @@
 
 // - vyšperkovaný vzhľad [2] - ukáž nám svoju tvorivosť a čo dokážeš s CSS
 
-let timeLimit = 3; // seconds
+let timeLimit = 60; // seconds
 const originalPosition = 50;
 
 let position = null;
@@ -99,7 +99,7 @@ const startGame = () => {
 
 const counter = () => {
   const count = setInterval(() => {
-    if (seconds == 00) {
+    if (seconds == 0) {
       minutes--;
       seconds = 59;
     } else {
@@ -115,7 +115,6 @@ const counter = () => {
         if (position < 50) {
           resultText.innerText = "🦊 win";
           score.fox++;
-
         } else if (position > 50) {
           resultText.innerText = "🐺 win";
           score.wolf++;
